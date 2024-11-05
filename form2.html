@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+            padding: 15px;
+        }			
+		.container {
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #f9f9f9;
+			display: flex;
+			flex-direction:column;
+			
+        }
+		h2{
+		text-align: center;
+		font-size:28px;
+		color: black;
+		text-shadow: 1px 2px blue;
+		}
+		button {
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;}
+  
+        h3{
+		text-align:center;
+		font-size:28px;
+		color:black;
+		text-shadow:1px 2px red;
+		}
+    </style>
+</head>
+<body>
+	
+<div class="container">
+<h2>Add Two Numbers</h2>
+  <label for="fnumber" style="font-size:25px;">First number:</label><br>
+  <input type="number" id="fnumber" name="fnumber"><br>
+  <label for="snumber"style="font-size:25px;">Second number:</label><br>
+  <input type="number" id="snumber" name="snumber"><br><br>
+<button type="button" onclick="printSumToScreen()">Calculate Sum</button>
+
+ <p id="result"></p>
+<script>
+function printSumToScreen() {
+   let sum = parseFloat(fnumber.value)+parseFloat(snumber.value);
+   document.getElementById('result').textContent = `The SUM is: ${sum}`;
+}
+</script>
+</div>
+
+<div class="container">
+<h3>Average of two Numbers</h3>
+  <label for="fnum" style="font-size:25px;">First number:</label><br>
+  <input type="number" id="fnum" name="fnum"><br>
+  <label for="snum"style="font-size:25px;">Second number:</label><br>
+  <input type="number" id="snum" name="snum"><br><br>
+<button type="button" onclick="printAverageToScreen()">Calculate Average</button>
+
+ <p id="rslt"></p>
+<script>
+function printAverageToScreen() {
+   let Average = parseFloat(fnum.value)+parseFloat(snum.value) / 2;
+   document.getElementById('rslt').textContent = `The Average is: ${Average}`;
+}
+</script>
+</div>
+
+<div class="container">
+<h2>Area Of Circle</h2>
+<label for="radius" style="font-size:25px;">Enter Radius</label><br>
+<input type="number" id="radius" name="radius"><br>
+<button type="button" onclick="printAreaToScreen()"> Calculate Area</button>
+
+<p id="area"></p>
+
+<script>
+function printAreaToScreen(){
+    let Area = Math.PI * Math.pow (radius.value , 2);
+    document.getElementById('area').textContent = `The Area is: ${Area}`;
+	}
+	</script>
+	</div>
+	
+<div class="container">
+    <h3>Perimeter Of A Rectangle</h3>
+    <label for="length" style="font-size:25px;">Enter Length</label><br>
+    <input type="number" id="length" name="length"><br>
+    <label for="width" style="font-size:25px;">Enter Width</label><br>
+    <input type="number" id="width" name="width"><br>
+    <button type="button" onclick="printPerimeterToScreen()">Calculate Perimeter</button>
+
+    <p id="perimeter"></p>
+
+    <script>
+    function printPerimeterToScreen() {
+        let lengthValue = parseFloat(document.getElementById('length').value);
+        let widthValue = parseFloat(document.getElementById('width').value);
+        
+        if (isNaN(lengthValue) || isNaN(widthValue)) {
+            document.getElementById('perimeter').textContent = 'Please enter valid numbers for length and width.';
+            return;
+        }
+
+        let perimeter = 2 * (lengthValue + widthValue);
+       
+        document.getElementById('perimeter').textContent = `The Perimeter is: ${perimeter}`;
+    }
+    </script>
+</div>
+
+<div class="container">
+    <h2>Volume Of A Cuboid</h2>
+	<label for="lngth" style="font-size:25px;">Enter Length</label><br>
+	<input type="number" id="lngth" name="lngth"><br>
+	<label for ="wdth" style="font-size:25px;">Enter Width</label><br>
+	<input type="number" id="wdth" name="wdth"><br>
+	<label for="hght" style="font-size:25px;">Enter Heigth</label><br>
+	<input type="number" id="hght" name="hght"><br>
+	<button type="button" onclick="printVolumeToScreen()">Calculate Volume</button>
+	
+	<p id="volume"></p>
+	<script>
+	function printVolumeToScreen(){
+	let lngthValue = parseFloat(document.getElementById('lngth').value);
+	let wdthValue = parseFloat(document.getElementById('wdth').value);
+	let hghtValue = parseFloat(document.getElementById('hght').value);
+	
+	if (isNaN(lngthValue) || isNaN(wdthValue) || isNaN(hghtValue)) {
+	    document.getElementById('volume').textContent = 'please Enter Valid Number for Length , Width , and Height.';
+		return;
+		}
+	let volume = (lngthValue * wdthValue * hghtValue);
+	document.getElementById('volume').textContent = ` The Volume is : ${volume}`;
+	}
+	</script>
+	</div>
+    
+	
+	<div class="container">
+    <h3>Square Of A Number</h3>
+    <label for="num" style="font-size:25px;">Enter Number</label><br>
+    <input type="number" id="num" name="num"><br>
+    <button type="button" onclick="printSquareToScreen()">Calculate Square</button>
+    
+    <p id="square"></p>
+    <script>
+    function printSquareToScreen() {
+        let numValue = parseFloat(document.getElementById('num').value);
+        
+        if (isNaN(numValue)) {
+            document.getElementById('square').textContent = 'Please Enter Valid Number.';
+            return;
+        }
+        
+        let square = Math.pow(numValue, 2);
+        document.getElementById('square').textContent = `The Square is: ${square}`; 
+    }
+    </script>
+</div>
+
+    
+	
+	<div class="container">
+	<h2>Inches To Centimeters</h2>
+	<label for="inch" style="font-size:25px;">Enter Inches</label><br>
+	<input type="number" id="inch" name="inch"><br>
+	<button type="button" onclick="printCentimetersToScreen()">Convert To Centimeters</button>
+	
+	<p id="centimeters"></p>
+	<script>
+	function printCentimetersToScreen(){
+	let inchValue = parseFloat(document.getElementById('inch').value);
+	
+	if(isNaN(inchValue)) {
+	document.getElementById('centimeters').textContent = 'Please Enter Valid Number.';
+	return;
+	}
+	
+	let centimeters = inchValue * 2.54;
+	document.getElementById('centimeters').textContent = ` Inches To Centimeters is : ${centimeters}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+    <h3>Price With Tax</h3>
+    <label for="price" style="font-size:25px;">Enter Price</label><br>
+    <input type="number" id="price" name="price"><br>
+    <label for="tax" style="font-size:25px;">Enter Tax Rate</label><br>
+    <input type="number" id="tax" name="tax"><br>
+    <button type="button" onclick="printTotalPriceToScreen()">Total Price</button>
+    
+    <p id="total"></p>
+   
+    
+    <script>
+    function printTotalPriceToScreen() {
+        let priceValue = parseFloat(document.getElementById('price').value); 
+        let taxValue = parseFloat(document.getElementById('tax').value); 
+
+        
+        if (isNaN(priceValue) || isNaN(taxValue)) {
+            document.getElementById('error').textContent = 'Please enter valid info.';
+            return;
+        }
+        
+        
+        let total = priceValue + (priceValue * (taxValue / 100));
+        document.getElementById('total').textContent = `Total Price including Tax: ${total}`; 
+    }
+    </script>
+</div>
+
+    <div class="container">
+	<h2>Total Marks</h2>
+	<label for="marks1" style="font-size:25px;">Enter Marks for Subject 1</label><br>
+	<input type="number" id="marks1" name="marks1"><br>
+	<label for="marks2" style="font-size:25px;">Enter Marks for Subject 2</label><br>
+	<input type="number" id="marks2" name="marks2"><br>
+	<label for="marks3" style="font-size:25px;">Enter Marks for Subject 3</label><br>
+	<input type="number" id="marks3" name="marks3"><br>
+	<button type="button" onclick="printTotalMarksToScreen()">Total Marks</button>
+	
+	<p id="tmark"></p>
+	<p id="error"></p>
+	<script>
+	function printTotalMarksToScreen(){
+    let marks1Value = parseFloat(document.getElementById('marks1').value);
+	let marks2Value = parseFloat(document.getElementById('marks2').value);
+	let marks3Value = parseFloat(document.getElementById('marks3').value);
+	
+	if(isNaN(marks1Value) || isNaN(marks2Value) || isNaN(marks3Value)) {
+	    document.getElementById('error').textContent = 'please enter valid info.';
+	    return;
+		}
+		
+	let tmark = marks1Value + marks2Value + marks3Value;
+	document.getElementById('tmark').textContent = `Total Marks: ${tmark}`;
+	}
+	</script>
+	</div>
+	
+	
+	<div class="container">
+	<h3>Simple Interest</h3>
+	<label for="principal" style="font-size:25px;">Enter Principal Amount</label><br>
+	<input type="number" id="principal" name="principal"><br>
+	<label for="rte" style="font-size:25px;">Enter Anual Interest Rate</label><br>
+	<input type="number" id="rte" name="rte"><br>
+	<label for="time" style="font-size:25px;">Enter Time</label><br>
+	<input type="number" id="time" name="time"><br>
+	<button type="button" onclick="printSimpleInterestToScreen()">Caculate Simple Interest</button>
+	
+	<p id="smpleint"></p>
+	<p id="error"></p>
+	<script>
+	function printSimpleInterestToScreen(){
+    let principalValue = parseFloat(document.getElementById('principal').value);
+	let rteValue = parseFloat(document.getElementById('rte').value);
+	let timeValue = parseFloat(document.getElementById('time').value);
+	
+	if(isNaN(principalValue) || isNaN(rteValue) || isNaN(timeValue)) {
+	document.getElementById('error').textContent = 'error';
+	return;
+    }
+	
+	let smpleint = (principalValue * rteValue * timeValue) / 100;
+	document.getElementById('smpleint').textContent = `Result is : ${smpleint}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+	<h2>Minutes To Seconds</h2>
+	<label for="mins" style="font-size:25px;">Enter Minutes</label><br>
+	<input type="number" id="mins" name="mins"><br>
+	<button type="button" onclick="printSecondsToScreen()">Convert</button>
+	
+	<p id="sec"></p>
+	<p id="error"></p>
+	<script>
+	function printSecondsToScreen(){
+	let minsValue = parseFloat(document.getElementById('mins').value);
+	
+	if(isNaN(minsValue)){
+	document.getElementById('error').textContent = 'error invalid info';
+    return;
+	}
+	
+	let sec = minsValue * 60;
+	document.getElementById('sec').textContent = `Minutes To Seconds is : ${sec}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+	<h3>Area Of Triangle</h3>
+	<label for="base" style="font-size:25px;">Enter Base</label><br>
+	<input type="number" id="base" name="base"><br>
+	<label for="height" style="font-size:25px;">Enter Height</label><br>
+	<input type="number" id="height" name="height"><br>
+	<button type="button" onclick="printAreaTriToScreen()">Calculate Area</button>
+	
+	<id id="are"></id>
+	<id id="error"></id>
+	<script>
+	function printAreaTriToScreen(){
+	let baseValue = parseFloat(document.getElementById('base').value);
+	let heightValue = parseFloat(document.getElementById('height').value);
+	
+	if(isNaN(baseValue) || isNaN(heightValue)){
+	document.getElementById('error').textContent = 'invalid input';
+	return;
+	}
+	
+	let are = (baseValue * heightValue) / 2;
+	document.getElementById('are').textContent = `Area Of Triangle is: ${are}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+	<h2>Cost Of Items</h2>
+	<label for="item1" style="font-size:25px;">Enter The Cost Of Item 1</label><br>
+	<input type="number" id="item1" name="item1"><br>
+	<label for="item2" style="font-size:25px;">Enter The Cost Of Item 2</label><br>
+	<input type="number" id="item2" name="item2"><br>
+	<label for="item3" style="font-size:25px;">Enter The Cost Of Item 3</label><br>
+	<input type="number" id="item3" name="item3"><br>
+	<button type="button" onclick="printCostToScreen()">Calculate Cost</button>
+	
+	<p id="cost"></p>
+	<p id="error"></p>
+	<script>
+	function printCostToScreen(){
+	let item1Value = parseFloat(document.getElementById('item1').value);
+	let item2Value = parseFloat(document.getElementById('item2').value);
+	let item3Value = parseFloat(document.getElementById('item3').value);
+	
+	if(isNaN(item1Value) || isNaN(item2Value) || isNaN(item3Value)){
+	document.getElementById('error').textContent = 'error invalid input';
+	return ; 
+	}
+	
+	let cost = item1Value + item2Value + item3Value;
+	document.getElementById('cost').textContent = `Total Cost is : ${cost}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+	<h3>Gallons To Liters</h3>
+	<label for="gallons" style="font-size:25px;">ENTER GALLONS</label><br>
+	<input type="number" id="gallons" name="gallons"><br>
+	<button type="button" onclick="printLitersToScreen()">Convert</button>
+	
+	<p id="liter"></p>
+	<script>
+	function printLitersToScreen(){
+	let gallonsValue = parseFloat(document.getElementById('gallons').value);
+	
+	if(isNaN(gallonsValue)) {
+	document.getElementById('liter').textContent = 'invalid input';
+	return;
+	}
+	
+	let liter = (gallonsValue * 3.78541); 
+	document.getElementById('liter').textContent = `Liters :${liter}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+	<h2>Circumference Of Circle</h2>
+	<label for="rdius" style="font-size:25px;">Enter Radius</label><br>
+	<input type="number" id="rdius" name="rdius"><br>
+	<button type="button" onclick="printCircumferenceToScreen()">Calculate</button>
+	
+	<p id="circum"></p>
+	<script>
+	function printCircumferenceToScreen(){
+	let rdiusValue = parseFloat(document.getElementById('rdius').value);
+	
+	if(isNaN(rdiusValue)) {
+	document.getElementById('circum').textContent = 'invalid input';
+	return;
+	}
+	
+	let circum = 2 * Math.PI * rdiusValue; 
+	document.getElementById('circum').textContent = `Circumference:${circum}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+	<h3>Area Of Square</h3>
+	<label for="sidelength" style="font-size:25px;">Enter Side Length</label><br>
+	<input type="number" id="sidelength" name="sidelength"><br>
+	<button type="button" onclick="printAofSquareToScreen()">Calculate</button>
+	
+	<p id="side"></p>
+	
+	<script>
+	function printAofSquareToScreen(){
+	let sidelengthValue = parseFloat(document.getElementById('sidelength').value);
+	
+	
+	if(isNaN(sidelengthValue)) {
+	document.getElementById('side').textContent = 'invalid input';
+	return;
+	}
+
+
+	let side =  Math.pow(sidelengthValue, 2); 
+	document.getElementById('side').textContent = `Area : ${side}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+	<h2>Kilograms To Pounds</h2>
+	<label for="kilo" style="font-size:25px;">Enter Kilograms</label><br>
+	<input type="number" id="kilo" name="kilo"><br>
+	<button type="button" onclick="printPoundToScreen()">Covert to Pound</button>
+	
+	<p id="pound"></p>
+	
+	<script>
+	function printPoundToScreen(){
+	let kiloValue = parseFloat(document.getElementById('kilo').value);
+	
+	
+	if(isNaN(kiloValue)) {
+	document.getElementById('pound').textContent = 'invalid input';
+	return;
+	}
+
+
+	let pound =  kiloValue * 2.20462; 
+	document.getElementById('pound').textContent = `Pounds : ${pound}`;
+	}
+	</script>
+	</div>
+	
+	
+	<div class="container">
+	<h3>Monthly Savings</h3>
+	<label for="msavings" style="font-size:25px;">Enter Monthly Savings Amount</label><br>
+	<input type="number" id="msavings" name="msavings"><br>
+	<label for="month" style="font-size:25px;">Enter Number Of Months</label><br>
+	<input type="number" id="month" name="month"><br>
+	<button type="button" onclick="printSavingsToScreen()">Calculate</button>
+	
+	<p id="saving"></p>
+	
+	<script>
+	function printSavingsToScreen(){
+	let msavingsValue = parseFloat(document.getElementById('msavings').value);
+	let monthValue = parseFloat(document.getElementById('month').value);
+	
+	
+	if(isNaN(msavingsValue)||isNaN(monthValue)) {
+	document.getElementById('saving').textContent = 'invalid input';
+	return;
+	}
+
+
+	let saving =  msavingsValue * monthValue; 
+	document.getElementById('saving').textContent = `Total Savings : ${saving}`;
+	}
+	</script>
+	</div>
+	
+	 <div class="container">
+        <h2>Total Distance Traveled</h2>
+        
+        <label for="day1">Enter the distance traveled on day 1:</label>
+        <input type="number" id="day1" name="day1">
+        
+        <label for="day2">Enter the distance traveled on day 2:</label>
+        <input type="number" id="day2" name="day2">
+        
+        <label for="day3">Enter the distance traveled on day 3:</label>
+        <input type="number" id="day3" name="day3">
+        
+        <label for="day4">Enter the distance traveled on day 4:</label>
+        <input type="number" id="day4" name="day4">
+        
+        <label for="day5">Enter the distance traveled on day 5:</label>
+        <input type="number" id="day5" name="day5">
+        
+        <label for="day6">Enter the distance traveled on day 6:</label>
+        <input type="number" id="day6" name="day6">
+        
+        <label for="day7">Enter the distance traveled on day 7:</label>
+        <input type="number" id="day7" name="day7">
+
+        <button type="button" onclick="printTotalDistanceToScreen()">Calculate Total Distance</button>
+        
+        <p id="reslt"></p>
+
+    <script>
+        function calculateTotalDistance() {
+            let totalDistance = 0;
+            for (let i = 1; i <= 7; i++) {
+                let dailyDistance = parseFloat(document.getElementById('day' + i).value);
+                if (isNaN(dailyDistance)) {
+                    totalDistance += dailyDistance;
+                } else {
+                    alert("Please enter a valid number for day " + i);
+                    return;
+                }
+            }
+            document.getElementById('reslt').textContent = `Total distance traveled over the week: $(totalDistance) units.`;
+        }
+    </script>
+	</div>
+	
+	<div class="container">
+	<h3>Weakly Salary</h3>
+	<label for="hwage" style="font-size:25px;">ENTER Hourly Wage</label><br>
+	<input type="number" id="hwage" name="hwage"><br>
+	<label for="hwork"   style="font-size:25px;">Enter Hours Worked</label><br>
+	<input type="number" id="hwork" name="hwork"><br>
+	<button type="button" onclick="printWeaklyWageToScreen()">Calculate</button>
+	
+	<p id="salry"></p>
+	<script>
+	function printWeaklyWageToScreen(){
+	let hwageValue = parseFloat(document.getElementById('hwage').value);
+	let hworkValue = parseFloat(document.getElementById('hwork').value);
+	
+	if(isNaN(hwageValue)||isNaN(hworkValue)) {
+	document.getElementById('hwage').textContent = 'invalid input';
+	document.getElementById('hwork').textContent = 'invalid input';
+	return;
+	}
+	
+	let salry = (hwageValue * hworkValue); 
+	document.getElementById('salry').textContent = `Weakly Salary : ${salry}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+	<h2>Days To Hours</h2>
+	<label for="days" style="font-size:25px;">Enter Days</label><br>
+	<input type="number" id="days" name="days"><br>
+	<button type="button" onclick="printHoursToScreen()">Convert Days To Hours</button>
+	
+	<p id="hrs"></p>
+	<script>
+	function printHoursToScreen(){
+	let daysValue = parseFloat(document.getElementById('days').value);
+	
+	if(isNaN(daysValue)) {
+	document.getElementById('days').textContent = 'invalid input';
+	return;
+	}
+	
+	let hrs = (daysValue * 24); 
+	document.getElementById('hrs').textContent = `Hours : ${hrs}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+    <h3>Total Payment After Discount</h3>
+    <label for="ogprice" style="font-size:25px;">Enter Original Price</label><br>
+    <input type="number" id="ogprice" name="ogprice"><br>
+    <label for="discpercent" style="font-size:25px;">Enter Discount Percentage</label><br>
+    <input type="number" id="discpercent" name="discpercent"><br>
+    <button type="button" onclick="printTotalPaymentToScreen()">Calculate</button>
+    
+    <p id="finalp"></p>
+    <p id="discamout"></p>
+    
+    <script>
+        function printTotalPaymentToScreen(){
+            let ogpriceValue = parseFloat(document.getElementById('ogprice').value);
+            let discpercentValue = parseFloat(document.getElementById('discpercent').value);
+            
+            let discamount = (ogpriceValue * (discpercentValue / 100));
+            let finalp = (ogpriceValue - discamount);
+            document.getElementById('finalp').textContent = `Total Payment After Discount: ${finalp}`;
+            document.getElementById('discamout').textContent = `Discount Amount: ${discamount}`;
+        }
+    </script>
+</div>
+
+
+    <div class="container">
+    <h2>Kilometers to Meters</h2>
+	<label for="kilom" style="font-size:25px;">Enter Kilometers</label><br>
+	<input type="number" id="kilom" name="kilom"><br>
+	<button type="button" onclick="printMetersToScreen()">Convert To Meters</button>
+	
+	<p id="meters"></p>
+	<script>
+	function printMetersToScreen(){
+	
+	let kilomValue = parseFloat(document.getElementById('kilom').value);
+	
+	let meters = kilomValue * 1000;
+	document.getElementById('meters').textContent = `Meters : ${meters}`;
+	}
+	</script>
+	</div>
+	
+	<div class="container">
+    <h3>Area Of Parallelogram</h3>
+	<label for="blength" style="font-size:25px;">Enter Base Length</label><br>
+	<input type="number" id="blength" name="blength"><br>
+	<label for="pheight" style="font-size:25px;">Enter Height</label><br>
+	<input type="number" id="pheight" name="pheight"><br>
+	<button type="button" onclick="printAreaOfParallelogramToScreen()">Calculate Area</button>
+	
+	<p id="areaofp"></p>
+	<script>
+	function printAreaOfParallelogramToScreen(){
+	
+	let blengthValue = parseFloat(document.getElementById('blength').value);
+	let pheightValue = parseFloat(document.getElementById('pheight').value);
+	
+	let areaofp = blengthValue * pheightValue;
+	document.getElementById('areaofp').textContent = `Area : ${areaofp}`;
+	}
+	</script>
+	</div>
+	
+	
+	
+	
+	</body>
+</html>
